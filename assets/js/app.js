@@ -7,6 +7,7 @@ function parseJwt(token) {
   return JSON.parse(base64);
 }
 
+// Allowed users and their roles
 const allowedUsers = {
   "kuldeeporganon@gmail.com": "admin",
   "srmismanager@gmail.com": "student"
