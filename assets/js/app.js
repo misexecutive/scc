@@ -1,11 +1,15 @@
 const appContent = document.getElementById("appContent");
 const navLinks = document.querySelectorAll(".nav-link");
 
+
 // Define allowed users with roles
 const allowedUsers = {
   "kuldeeporganon@gmail.com": "admin",
   "srmismanager@gmail.com": "student"
 };
+
+
+
 
 // Load page content dynamically
 function loadPage(page) {
@@ -56,29 +60,18 @@ function parseJwt(token) {
   return JSON.parse(json);
 }
 
-// Google Sign-in callback
 function handleLogin(response) {
-  const data = parseJwt(response.credential);
+  const data = jwt_decode(response.credential);
   const email = data.email;
-  const name = data.name;
 
-  const role = allowedUsers[email];
-  if (!role) {
-    const msg = document.getElementById("loginMessage");
-    if (msg) msg.innerText = "Access denied: You are not authorized.";
-    return;
+  if (allowedUsers[email]) {
+    localStorage.setItem("scc_role", allowedUsers[email]);
+    localStorage.setItem("scc_user", JSON.stringify(data));
+    window.location.hash = allowedUsers[email] === "admin" ? "admin" : "dashboard";
+  } else {
+    document.getElementById("loginMessage").textContent = "Access denied. You are not authorized.";
   }
-
-  localStorage.setItem("userEmail", email);
-  localStorage.setItem("userName", name);
-  localStorage.setItem("role", role);
-
-  // Redirect after login
-  const page = role === "admin" ? "admin" : "dashboard";
-  window.location.hash = page;
-  loadPage(page);
 }
-
 // Check if user is logged in
 function isAuthenticated() {
   return !!localStorage.getItem("userEmail");
