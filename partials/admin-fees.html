@@ -1,0 +1,17 @@
+ <div class="container">
+    <h2>🧾 Manage Fee Status</h2>
+
+    <input type="text" id="studentId" placeholder="Enter Student ID (e.g. SCC123456)" />
+    <button onclick="checkStatus()">Check Fee Status</button>
+
+    <div id="updateSection" style="display:none;">
+      <p><strong>Current Status:</strong> <span id="currentStatus"></span></p>
+      <select id="feeStatus">
+        <option value="PAID">PAID</option>
+        <option value="PENDING">PENDING</option>
+      </select>
+      <button onclick="updateStatus()">Update Status</button>
+    </div>
+
+    <p id="message"></p>
+  </div>

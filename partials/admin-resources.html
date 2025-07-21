@@ -1,0 +1,17 @@
+  <div class="container">
+    <h2>📤 Upload Study Resource</h2>
+
+    <input type="text" id="title" placeholder="Title (e.g. Account Basics PDF)" required>
+    <textarea id="description" placeholder="Short description..." rows="3"></textarea>
+    <input type="text" id="course" placeholder="Course (e.g. BCOM)" required>
+    <input type="text" id="batch" placeholder="Batch (e.g. BCOM-2024-B2)" required>
+    <select id="type">
+      <option value="PDF">PDF</option>
+      <option value="Link">Link</option>
+      <option value="Video">Video</option>
+    </select>
+    <input type="text" id="fileId" placeholder="Drive File ID or URL" required>
+
+    <button onclick="uploadResource()">Upload</button>
+    <p id="message"></p>
+  </div>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SCC Web App</title>
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      display: flex;
+    }
+
+    aside {
+      width: 200px;
+      height: 100vh;
+      background: #2c3e50;
+      color: white;
+      padding-top: 20px;
+    }
+
+    aside h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    aside nav a {
+      display: block;
+      color: white;
+      padding: 12px 20px;
+      text-decoration: none;
+    }
+
+    aside nav a:hover,
+    aside nav a.active {
+      background: #34495e;
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+      background: #ecf0f1;
+    }
+
+    #appContent {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      min-height: 80vh;
+    }
+  </style>
+</head>
+<body>
+
+  <aside>
+    <h2>SCC Panel</h2>
+    <nav>
+      <a href="#dashboard" class="nav-link">🏠 Dashboard</a>
+      <a href="#fees" class="nav-link">🧾 Fee Status</a>
+      <a href="#results" class="nav-link">📊 Results</a>
+      <a href="#downloads" class="nav-link">📥 Downloads</a>
+      <a href="#admin" class="nav-link">🛠️ Admin Panel</a>
+    </nav>
+  </aside>
+
+  <main>
+    <div id="appContent">
+      <!-- Loaded content will appear here -->
+    </div>
+  </main>
+
+  <script src="./assets/js/app.js"></script>
+</body>
+</html>
