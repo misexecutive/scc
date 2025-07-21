@@ -44,12 +44,23 @@ function loadPage(page) {
       return res.text();
     })
     .then(html => {
-      document.getElementById("app").innerHTML = html;
+      const app = document.getElementById("app");
+      if (app) {
+        app.innerHTML = html;
+      } else {
+        console.error("❌ <div id='app'> not found in the DOM.");
+      }
     })
     .catch(err => {
-      document.getElementById("app").innerHTML = `<p>⚠️ ${err.message}</p>`;
+      const app = document.getElementById("app");
+      if (app) {
+        app.innerHTML = `<p>⚠️ ${err.message}</p>`;
+      } else {
+        console.error("❌ <div id='app'> not found. Can't display error message.");
+      }
     });
 }
+
 
 // On hash change (e.g., #dashboard, #fees, #results)
 window.onhashchange = () => {
